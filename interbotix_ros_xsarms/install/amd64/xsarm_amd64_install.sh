@@ -178,7 +178,8 @@ function install_essential_packages() {
   elif [ $PY_VERSION == 3 ]; then
     sudo apt-get install -yq python3-pip
     if [ "$UBUNTU_VERSION" == "24.04" ]; then
-      python3 -m pip --break-system-packages install modern_robotics
+      # Use --break-system-packages flag for Ubuntu >=Noble
+      python3 -m pip install --break-system-packages modern_robotics
     else
       python3 -m pip install modern_robotics
     fi
