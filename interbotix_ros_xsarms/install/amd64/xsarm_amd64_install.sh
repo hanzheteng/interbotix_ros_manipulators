@@ -286,11 +286,16 @@ function install_ros2() {
   # Install rosdep and other necessary tools
   sudo apt-get install -yq            \
     python3-rosdep                    \
-    python3-rosinstall                \
     python3-rosinstall-generator      \
-    python3-wstool                    \
     build-essential                   \
     python3-colcon-common-extensions
+
+  # Install additional ROS 2 tools and dependencies if not Ubuntu >=Noble
+  if [ "$UBUNTU_VERSION" != "24.04" ]; then
+    sudo apt-get install -yq          \
+      python3-rosinstall              \
+      python3-wstool
+  fi
 
   # Remove sources if they exist
   if [ -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then
