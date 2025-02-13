@@ -213,9 +213,9 @@ function install_ros1() {
     echo "Interbotix Arm ROS packages already installed!"
   else
     cd "$INSTALL_PATH"/src
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_core.git
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_manipulators.git
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_toolboxes.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/hanzheteng/interbotix_ros_core.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/hanzheteng/interbotix_ros_manipulators.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/hanzheteng/interbotix_ros_toolboxes.git
     rm                                                                                              \
       interbotix_ros_core/interbotix_ros_xseries/CATKIN_IGNORE                                      \
       interbotix_ros_manipulators/interbotix_ros_xsarms/CATKIN_IGNORE                               \
@@ -296,7 +296,7 @@ function install_ros2() {
       echo -e "${GRN}Installing Apriltag ROS Wrapper...${OFF}"
       mkdir -p "$APRILTAG_WS"/src
       cd "$APRILTAG_WS"/src
-      git clone -b ros2-port https://github.com/Interbotix/apriltag_ros.git
+      git clone -b ros2-port https://github.com/hanzheteng/apriltag_ros.git
       cd "$APRILTAG_WS"
       rosdep install --from-paths src --ignore-src -r -y
       # cmake-args flags disables warnings as errors unrelated to ROS
@@ -319,11 +319,11 @@ function install_ros2() {
   else
     echo -e "${GRN}Installing ROS 2 packages for the Interbotix Arm...${OFF}"
     cd "$INSTALL_PATH"/src
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_core.git
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_manipulators.git
-    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/Interbotix/interbotix_ros_toolboxes.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/hanzheteng/interbotix_ros_core.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/hanzheteng/interbotix_ros_manipulators.git
+    git clone -b "$ROS_DISTRO_TO_INSTALL" https://github.com/hanzheteng/interbotix_ros_toolboxes.git
     # TODO(lsinterbotix) remove below when moveit_visual_tools is available in apt repo
-    git clone -b ros2 https://github.com/ros-planning/moveit_visual_tools.git
+    git clone -b ros2 https://github.com/hanzheteng/moveit_visual_tools.git
     if [ "$INSTALL_PERCEPTION" = true ]; then
       rm                                                                                                \
         interbotix_ros_manipulators/interbotix_ros_xsarms/interbotix_xsarm_perception/COLCON_IGNORE     \
